@@ -46,7 +46,7 @@ export default function Slideshow() {
   };
 
   return (
-    <div className="h-screen w-full flex flex-col bg-gradient-to-br from-green-50 to-blue-50">
+    <div className="h-full w-full flex flex-col bg-gradient-to-br from-green-50 to-blue-50">
       {/* Header with Logo */}
       <header className="flex items-center justify-between p-6 bg-white shadow">
         <div className="flex items-center gap-3">
@@ -63,31 +63,31 @@ export default function Slideshow() {
       </header>
 
       {/* Slide Content */}
-      <div className="flex flex-1 items-center justify-center px-10">
+      <div className="flex flex-1 items-center justify-center px-4 md:px-10 py-8 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-6xl w-full">
-          {/* Text Section */}
-          <div className="text-left space-y-6">
-            <h2 className="text-3xl font-bold text-green-900">
-              {slides[current].title}
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">
-              {slides[current].text}
-            </p>
-          </div>
-
-          {/* Image Section */}
-          <div className="flex justify-center">
+          {/* Image Section - comes first on mobile */}
+          <div className="flex justify-center order-1 md:order-2">
             <img
               src={slides[current].image}
               alt={slides[current].title}
-              className="rounded-2xl shadow-lg w-full max-w-lg border-4 border-green-100"
+              className="rounded-2xl shadow-lg w-full h-[280px] sm:h-[350px] md:h-[500px] object-cover border-4 border-green-100"
             />
+          </div>
+
+          {/* Text Section - comes below image on mobile */}
+          <div className="text-left space-y-6 order-2 md:order-1">
+            <h2 className="text-2xl sm:text-3xl font-bold text-green-900">
+              {slides[current].title}
+            </h2>
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed whitespace-pre-line">
+              {slides[current].text}
+            </p>
           </div>
         </div>
       </div>
 
       {/* Navigation Controls */}
-      <div className="flex justify-center gap-6 pb-8">
+      <div className="flex justify-center gap-6 pb-8 pt-16">
         <button
           onClick={goPrev}
           disabled={current === 0}
