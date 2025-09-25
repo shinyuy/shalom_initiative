@@ -4,17 +4,16 @@ import { Howl } from "howler";
 import { slides } from "../slides";
 
 export default function Slideshow() {
-  const [current, setCurrent] = useState(0); // main slide index
-  const [imageIndex, setImageIndex] = useState(0); // sub-image index
+  const [current, setCurrent] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [started, setStarted] = useState(false); // 👈 for overlay
   const soundRef = useRef(null);
 
-  // Play audio for current slide
   const playAudio = (index) => {
     if (soundRef.current) {
       soundRef.current.stop();
       soundRef.current.unload();
     }
-
     const newSound = new Howl({
       src: [slides[index].audio],
       onend: () => {
@@ -23,34 +22,32 @@ export default function Slideshow() {
         }
       },
     });
-
     soundRef.current = newSound;
     newSound.play();
   };
 
-  // play audio when slide changes
   useEffect(() => {
-    playAudio(current);
-    // reset image index when main slide changes
-    setImageIndex(0);
-
+    if (started) {
+      playAudio(current);
+      setImageIndex(0);
+    }
     return () => {
       if (soundRef.current) {
         soundRef.current.stop();
       }
     };
-  }, [current]);
+  }, [current, started]);
 
-  // cycle images inside each slide automatically
   useEffect(() => {
+    if (!started) return;
     const images = slides[current].images || [];
     if (images.length <= 1) return;
 
     const interval = setInterval(() => {
       setImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    }, 4000); // every 3 seconds
+    }, 4000);
     return () => clearInterval(interval);
-  }, [current]);
+  }, [current, started]);
 
   const goNext = () => {
     if (current < slides.length - 1) setCurrent(current + 1);
@@ -61,7 +58,22 @@ export default function Slideshow() {
   };
 
   return (
-    <div className="h-full w-full flex flex-col bg-gradient-to-br from-green-50 to-blue-50">
+    <div className="relative h-full w-full flex flex-col bg-gradient-to-br from-green-50 to-blue-50">
+      {/* Overlay to start */}
+      {!started && (
+        <div className="absolute inset-0 bg-black/70 flex items-center justify-center z-50">
+          <button
+            onClick={() => {
+              setStarted(true);
+              playAudio(0); // 👈 start first audio immediately
+            }}
+            className="px-8 py-4 bg-green-600 text-white text-xl rounded-lg hover:bg-green-700"
+          >
+            ▶ Start Presentation
+          </button>
+        </div>
+      )}
+
       {/* Header */}
       <header className="flex items-center justify-between p-6 bg-white shadow">
         <div className="flex items-center gap-3">
@@ -90,8 +102,8 @@ export default function Slideshow() {
                     src={img}
                     alt={slides[current].title}
                     className={`absolute inset-0 w-full h-full object-cover 
-    transition-opacity duration-[5000ms] ease-[cubic-bezier(0.4,0,0.2,1)] 
-    ${i === imageIndex ? "opacity-100" : "opacity-0"}`}
+                    transition-opacity duration-[5000ms] ease-[cubic-bezier(0.4,0,0.2,1)] 
+                    ${i === imageIndex ? "opacity-100" : "opacity-0"}`}
                   />
                 ))}
             </div>
