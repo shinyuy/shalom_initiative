@@ -4,7 +4,8 @@ import { Howl } from "howler";
 import { slides } from "../slides";
 
 export default function Slideshow() {
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(0); // main slide index
+  const [imageIndex, setImageIndex] = useState(0); // sub-image index
   const soundRef = useRef(null);
 
   // Play audio for current slide
@@ -27,14 +28,28 @@ export default function Slideshow() {
     newSound.play();
   };
 
+  // play audio when slide changes
   useEffect(() => {
     playAudio(current);
+    // reset image index when main slide changes
+    setImageIndex(0);
 
     return () => {
       if (soundRef.current) {
         soundRef.current.stop();
       }
     };
+  }, [current]);
+
+  // cycle images inside each slide automatically
+  useEffect(() => {
+    const images = slides[current].images || [];
+    if (images.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }, 4000); // every 3 seconds
+    return () => clearInterval(interval);
   }, [current]);
 
   const goNext = () => {
@@ -47,7 +62,7 @@ export default function Slideshow() {
 
   return (
     <div className="h-full w-full flex flex-col bg-gradient-to-br from-green-50 to-blue-50">
-      {/* Header with Logo */}
+      {/* Header */}
       <header className="flex items-center justify-between p-6 bg-white shadow">
         <div className="flex items-center gap-3">
           <img
@@ -65,16 +80,24 @@ export default function Slideshow() {
       {/* Slide Content */}
       <div className="flex flex-1 items-center justify-center px-4 md:px-10 py-8 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-6xl w-full">
-          {/* Image Section - comes first on mobile */}
-          <div className="flex justify-center order-1 md:order-2">
-            <img
-              src={slides[current].image}
-              alt={slides[current].title}
-              className="rounded-2xl shadow-lg w-full h-[280px] sm:h-[350px] md:h-[500px] object-cover border-4 border-green-100"
-            />
+          {/* Image Section */}
+          <div className="order-1 md:order-2">
+            <div className="relative w-full h-[280px] sm:h-[350px] md:h-[500px] rounded-2xl overflow-hidden border-4 border-green-100 shadow-lg">
+              {slides[current].images &&
+                slides[current].images.map((img, i) => (
+                  <img
+                    key={i}
+                    src={img}
+                    alt={slides[current].title}
+                    className={`absolute inset-0 w-full h-full object-cover 
+    transition-opacity duration-[5000ms] ease-[cubic-bezier(0.4,0,0.2,1)] 
+    ${i === imageIndex ? "opacity-100" : "opacity-0"}`}
+                  />
+                ))}
+            </div>
           </div>
 
-          {/* Text Section - comes below image on mobile */}
+          {/* Text Section */}
           <div className="text-left space-y-6 order-2 md:order-1">
             <h2 className="text-2xl sm:text-3xl font-bold text-green-900">
               {slides[current].title}

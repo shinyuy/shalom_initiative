@@ -7,7 +7,7 @@ Our mission is to foster peace, hope, and sustainable change in communities acro
 Through education, empowerment, and compassion, we believe every step toward peace builds a stronger future for us all. 
 
 The Shalom Initiative is more than a project — it is a movement of healing, restoration, and possibility.`,
-    image: "/mary.jpg", // add her portrait or symbolic intro image in /public
+    images: ["/mary.jpg"], // add her portrait or symbolic intro image in /public
     audio: "/audio/intro.mp3", // record Mary’s voice or a soft welcoming narration
   },
   {
@@ -26,7 +26,19 @@ In a community affected by crisis, these small businesses represent hope, stabil
 By investing in women and youth, Shalom Initiative is addressing root causes of conflict, strengthening social cohesion, 
 and contributing to Sustainable Development Goals 1 (No Poverty), 5 (Gender Equality), and 8 (Decent Work & Economic Growth).
     `,
-    image: "/economic.jpg",
+    images: [
+      "/economic/1.jpg",
+      "/economic/2.jpg",
+      "/economic/3.jpg",
+      "/economic/4.jpg",
+      "/economic/5.jpg",
+      "/economic/6.jpg",
+      "/economic/8.jpg",
+      "/economic/9.jpg",
+      "/economic/10.jpg",
+      "/economic/11.jpg",
+      "/economic/12.jpg",
+    ],
     audio: "/audio/economic.mp3",
   },
   {
@@ -44,7 +56,27 @@ selling eggs, and reinvesting in their farms.
 Agriculture also strengthens community ties, as youth cooperatives and farmer groups are being formed. 
 Through these projects, Shalom contributes to SDG 2 (Zero Hunger), 8 (Decent Work), and 10 (Reduced Inequalities).
     `,
-    image: "/agriculture.jpg",
+    images: [
+      "/agriculture/1.jpg",
+      "/agriculture/2.jpg",
+      "/agriculture/3.jpg",
+      "/agriculture/4.jpg",
+      "/agriculture/5.jpg",
+      "/agriculture/6.jpg",
+      "/agriculture/8.jpg",
+      "/agriculture/9.jpg",
+      "/agriculture/10.jpg",
+      "/agriculture/11.jpg",
+      "/agriculture/12.jpg",
+      "/agriculture/13.jpg",
+      "/agriculture/14.jpg",
+      "/agriculture/15.jpg",
+      "/agriculture/16.jpg",
+      "/agriculture/17.jpg",
+      "/agriculture/18.jpg",
+      "/agriculture/19.jpg",
+      "/agriculture/20.jpg",
+    ],
     audio: "/audio/agriculture.mp3",
   },
   {
@@ -62,7 +94,24 @@ reducing stigma and absenteeism among schoolgirls.
 By investing in WASH, Shalom Initiative is not just improving health but building resilience in crisis-affected 
 communities. This directly supports SDG 3 (Good Health and Well-being) and SDG 6 (Clean Water and Sanitation).
     `,
-    image: "/wash.jpg",
+    images: [
+      "/water/1.jpg",
+      "/water/2.jpg",
+      "/water/3.jpg",
+      "/water/4.jpg",
+      "/water/5.jpg",
+      "/water/6.jpg",
+      "/water/8.jpg",
+      "/water/9.jpg",
+      "/water/10.jpg",
+      "/water/11.jpg",
+      "/water/12.jpg",
+      "/water/13.jpg",
+      "/water/14.jpg",
+      "/water/15.jpg",
+      "/water/16.jpg",
+      "/water/17.jpg",
+    ],
     audio: "/audio/wash.mp3",
   },
   {
@@ -81,7 +130,15 @@ and better prepared to build peaceful communities in the future.
 
 This project aligns with SDG 4 (Quality Education) and contributes to building a culture of peace, tolerance, and resilience.
     `,
-    image: "/education.jpg",
+    images: [
+      "/education/1.jpg",
+      "/education/2.jpg",
+      "/education/3.jpg",
+      "/education/4.jpg",
+      "/education/5.jpg",
+      "/education/6.jpg",
+      "/education/7.jpg",
+    ],
     audio: "/audio/education.mp3",
   },
   {
@@ -103,7 +160,12 @@ but the need for peace remains urgent.
 Understanding the current situation is crucial, because it reminds us why the work of grassroots organizations 
 is not optional but essential.
     `,
-    image: "/situation.jpg",
+    images: [
+      "/situation/1.jpg",
+      "/situation/2.jpg",
+      "/situation/3.jpg",
+      "/situation/4.jpg",
+    ],
     audio: "/audio/situation.mp3",
   },
   {
@@ -124,7 +186,7 @@ until peace, stability, and dignity are restored.
 Our message is clear: peace is possible, but it requires persistence, solidarity, and continued investment in people. 
 Together, we can repair lives and restore hope for a better Cameroon. Thank you.
     `,
-    image: "/future.jpg",
+    images: ["/situation/1.jpg"],
     audio: "/audio/future.mp3",
   },
 ];
