@@ -8,7 +8,18 @@ Through education, empowerment, and compassion, we believe every step toward pea
 
 The Shalom Initiative is more than a project — it is a movement of healing, restoration, and possibility.`,
     images: ["/mary.jpg"], // add her portrait or symbolic intro image in /public
-    audio: "/audio/intro.mp3", // record Mary’s voice or a soft welcoming narration
+    audio: "/intro.mp3", // record Mary’s voice or a soft welcoming narration
+  },
+  {
+    title: "Shalom Initiative",
+    text: `Shalom Initiative is a nonprofit organization legally registered in Kumba on the 24th of August 2017. 
+Shalom means peace, wholeness, repair, and crushing off chaos that fracture lives. 
+
+The initiative focuses on engaging communities, promoting peace, and empowering individuals. 
+
+Thus, the goal of Shalom Initiative is to transform and impact lives through its arms of Economic Empowerment, Agriculture, WASH, Education, and Peace Building.`,
+    images: ["/logo.jpg"], // place a representative photo or logo in /public/shalom.jpg
+    audio: "/shalom.mp3", // record narration for this slide
   },
   {
     title: "Economic Empowerment",
@@ -39,7 +50,7 @@ and contributing to Sustainable Development Goals 1 (No Poverty), 5 (Gender Equa
       "/economic/11.jpg",
       "/economic/12.jpg",
     ],
-    audio: "/audio/economic.mp3",
+    audio: "/economic/economic.mp3",
   },
   {
     title: "Agricultural Empowerment",
@@ -77,7 +88,7 @@ Through these projects, Shalom contributes to SDG 2 (Zero Hunger), 8 (Decent Wor
       "/agriculture/19.jpg",
       "/agriculture/20.jpg",
     ],
-    audio: "/audio/agriculture.mp3",
+    audio: "/agriculture/agriculture.mp3",
   },
   {
     title: "Water, Sanitation & Hygiene (WASH)",
@@ -112,7 +123,7 @@ communities. This directly supports SDG 3 (Good Health and Well-being) and SDG 6
       "/water/16.jpg",
       "/water/17.jpg",
     ],
-    audio: "/audio/wash.mp3",
+    audio: "/water/wash.mp3",
   },
   {
     title: "Education",
@@ -139,7 +150,7 @@ This project aligns with SDG 4 (Quality Education) and contributes to building a
       "/education/6.jpg",
       "/education/7.jpg",
     ],
-    audio: "/audio/education.mp3",
+    audio: "/education/education.mp3",
   },
   {
     title: "Current Situation in Kumba",
@@ -166,7 +177,7 @@ is not optional but essential.
       "/situation/3.jpg",
       "/situation/4.jpg",
     ],
-    audio: "/audio/situation.mp3",
+    audio: "/situation/situation.mp3",
   },
   {
     title: "Outlook for the Future",
@@ -186,7 +197,7 @@ until peace, stability, and dignity are restored.
 Our message is clear: peace is possible, but it requires persistence, solidarity, and continued investment in people. 
 Together, we can repair lives and restore hope for a better Cameroon. Thank you.
     `,
-    images: ["/situation/1.jpg"],
-    audio: "/audio/future.mp3",
+    images: ["/logo.jpg"],
+    audio: "/future.mp3",
   },
 ];
